@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moaaz Amgad | Software Engineer &amp; Full-Stack Developer</title>
+  <meta name="description" content="Official Portfolio of Moaaz Amgad — Full-Stack Developer & Software Engineer specializing in Laravel, React, high-performance APIs, and scalable enterprise architectures.">
+  <meta name="keywords" content="Moaaz Amgad, Software Engineer, Full Stack Developer, Laravel, React, PHP, Backend Developer, Portfolio, Egypt">
+  <meta name="author" content="Moaaz Amgad">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Moaaz Amgad | Software Engineer &amp; Full-Stack Developer">
+  <meta property="og:description" content="Crafting scalable architectures & production-grade web systems.">
+  <meta property="og:image" content="./assets/moaaz.png">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            midnight: '#040810',
+          },
+          fontFamily: {
+            sans: ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
+            mono: ['Fira Code', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-midnight text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
+
+  <!-- Scroll Progress Indicator Bar (Top Edge) -->
+  <div id="scrollProgressBar" class="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- Custom Interactive Cursor -->
+  <div id="cursor-ring" class="custom-cursor-ring" aria-hidden="true"></div>
+  <div id="cursor-dot" class="custom-cursor-dot" aria-hidden="true"></div>
+
+  <!-- Ambient Interactive Canvas & Background Glow -->
+  <canvas id="techCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="circuit-grid"></div>
+  </div>
+
+  <!-- Minimalist Navigation Bar -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Animated Monogram Logo -->
+        <a href="#hero" class="group flex items-center gap-3 text-white no-underline">
+          <div class="logo-box">
+            <div class="logo-rotating-border"></div>
+            <div class="logo-inner">
+              <span class="logo-initials">MA</span>
+            </div>
+          </div>
+          <span class="font-bold text-lg tracking-tight group-hover:text-cyan-400 transition-colors">Moaaz Amgad</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-xs font-bold tracking-widest uppercase text-slate-300">
+          <a href="#hero" class="nav-item active">HOME</a>
+          <a href="#about" class="nav-item">ABOUT</a>
+          <a href="#services" class="nav-item">SERVICES</a>
+          <a href="#skills" class="nav-item">SKILLS</a>
+          <a href="#experience" class="nav-item">EXPERIENCE</a>
+          <a href="#projects" class="nav-item">PROJECTS</a>
+          <a href="#contact" class="nav-item">CONTACT</a>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white transition-colors" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="hidden md:hidden bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-4 text-xs font-bold tracking-widest uppercase">
+        <a href="#hero" class="mobile-nav-item active">HOME</a>
+        <a href="#about" class="mobile-nav-item">ABOUT</a>
+        <a href="#services" class="mobile-nav-item">SERVICES</a>
+        <a href="#skills" class="mobile-nav-item">SKILLS</a>
+        <a href="#experience" class="mobile-nav-item">EXPERIENCE</a>
+        <a href="#projects" class="mobile-nav-item">PROJECTS</a>
+        <a href="#contact" class="mobile-nav-item">CONTACT</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="relative z-10">
+
+    <!-- ============================================== -->
+    <!-- HERO / INTRODUCTION SECTION                    -->
+    <!-- ============================================== -->
+    <section id="hero" class="min-h-screen flex flex-col justify-center relative overflow-hidden pt-28 pb-16">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 w-full flex-1 flex flex-col justify-center relative">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
+          
+          <!-- Left Column: High-Impact Copywriting, Dynamic Role Rotater, & Actions -->
+          <div class="lg:col-span-7 flex flex-col items-start text-left z-10">
+            
+            <!-- Availability / Status Badge -->
+            <div class="status-badge mb-6">
+              <span class="status-indicator">
+                <span class="status-ping"></span>
+                <span class="status-dot"></span>
+              </span>
+              <span class="status-text">Available for Full-Stack, Backend &amp; Frontend Projects</span>
+            </div>
+
+            <!-- Greeting -->
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-cyan-400 font-mono text-base font-semibold">Hi, I'm</span>
+              <span class="h-px w-8 bg-cyan-400/50"></span>
+            </div>
+
+            <!-- Hero Big Name -->
+            <h1 class="hero-name text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white mb-2 leading-none">
+              <span class="text-gradient-blue">Moaaz Amgad</span>
+            </h1>
+
+            <!-- Fixed Prominent Subtitle -->
+            <div class="flex items-center gap-3 mb-4">
+              <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-100 tracking-tight">
+                Full-Stack Developer
+              </h2>
+              <span class="hidden sm:inline-block h-2 w-2 rounded-full bg-cyan-400"></span>
+            </div>
+
+            <!-- Dynamic Capabilities Rotater (Directly underneath, no 'Specialized in') -->
+            <div class="role-wrapper flex items-center gap-2 mb-10 min-h-[36px]">
+              <span class="text-cyan-400 font-mono text-base sm:text-xl font-bold">&gt;</span>
+              <span id="roleTypist" class="text-cyan-300 font-mono text-base sm:text-xl font-medium border-r-2 border-cyan-400 pr-1">
+                Building Scalable Backend Architectures
+              </span>
+            </div>
+
+            <!-- 2 Clean, Confident Action Buttons -->
+            <div class="flex flex-wrap items-center gap-4">
+              <a href="#projects" class="btn-hero-primary">
+                <span>Explore My Work</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+              <a href="#contact" class="btn-hero-secondary">
+                <span>Let's Connect</span>
+                <i class="fa-regular fa-paper-plane"></i>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Seamless Integrated Portrait (Unobstructed & Clean) -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-center relative z-10">
+            
+            <div class="hero-portrait-stage relative w-full flex items-center justify-center">
+              
+              <!-- Subtle Cyan Ambient Radial Aura Behind Moaaz -->
+              <div class="portrait-ambient-glow" aria-hidden="true"></div>
+              
+              <!-- Cyber Geometric Accent Behind Portrait -->
+              <div class="portrait-cyber-ring" aria-hidden="true"></div>
+
+              <!-- Moaaz Portrait: Crisp, High Quality, Completely Blended with NO Borders or Obstructions -->
+              <div class="portrait-blend-wrapper">
+                <img src="./assets/moaaz.png" alt="Moaaz Amgad - Software Engineer" class="hero-portrait-seamless" loading="eager">
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Mouse Scroll Down Indicator -->
+        <div class="mt-8 flex justify-center">
+          <a href="#about" class="scroll-mouse-indicator" aria-label="Scroll to About section">
+            <span class="mouse-wheel"></span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- ABOUT ME SECTION (Comprehensive & Client-Focused)-->
+    <!-- ============================================== -->
+    <!-- ============================================== -->
+    <!-- ABOUT ME SECTION (Checklist: Identity, Offer, Clients, USP, Values) -->
+    <!-- ============================================== -->
+    <section id="about" class="py-28 relative overflow-hidden border-t border-slate-900">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-20">
+          <div class="section-badge mb-4">
+            <i class="fa-solid fa-user-check"></i>
+            <span>Who I Am</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            About Me
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg mt-4 leading-relaxed">
+            Bridging scalable server architectures, resilient APIs, and modern intuitive interfaces.
+          </p>
+        </div>
+
+        <!-- 1. Who Am I & Core Engineering Philosophy Card -->
+        <div class="bg-slate-900/40 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-slate-800/80 mb-12 shadow-xl">
+          <div class="max-w-4xl">
+            <div class="flex items-center gap-3 text-cyan-400 font-mono text-xs uppercase tracking-wider mb-4 font-semibold">
+              <i class="fa-solid fa-terminal"></i>
+              <span>Identity &amp; Philosophy</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-bold text-white mb-6 leading-snug">
+              Building Software as a Resilient Business Asset
+            </h3>
+            
+            <div class="space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed">
+              <p>
+                I'm <strong>Moaaz Amgad</strong>, a dedicated Full-Stack Software Engineer with over <strong>4 years of hands-on experience</strong> engineering reliable web platforms. My philosophy centers on a simple truth: software shouldn't just run — it must be scalable, maintainable, and built to withstand real-world operational pressure.
+              </p>
+              <p>
+                I bridge the gap between heavy server-side business logic and sleek, modern front-end user interfaces. Rather than taking shortcuts, I prioritize clean architectural patterns, SOLID design principles, and comprehensive testing to ensure longevity and minimal technical debt.
+              </p>
+            </div>
+
+            <!-- Value Badges -->
+            <div class="pt-8 mt-8 border-t border-slate-800/80 flex flex-wrap gap-3">
+              <span class="skill-pill"><i class="fa-solid fa-check text-cyan-400"></i> 4+ Years Experience</span>
+              <span class="skill-pill"><i class="fa-solid fa-check text-cyan-400"></i> Full-Stack Versatility</span>
+              <span class="skill-pill"><i class="fa-solid fa-check text-cyan-400"></i> Clean Code &amp; SOLID Design</span>
+              <span class="skill-pill"><i class="fa-solid fa-check text-cyan-400"></i> Scalable Cloud Architecture</span>
+              <span class="skill-pill"><i class="fa-solid fa-check text-cyan-400"></i> Production Reliability</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Three Core Pillars (What I Offer | Who I Help | What Sets Me Apart) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          
+          <!-- Card 1: What I Offer -->
+          <div class="about-feature-card">
+            <div class="card-header-icon bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+              <i class="fa-solid fa-cubes text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">What I Offer</h3>
+            <p class="text-slate-400 text-xs sm:text-sm mb-6 leading-relaxed">
+              Comprehensive full-stack engineering tailored for growth and reliability:
+            </p>
+            <ul class="space-y-3.5">
+              <li class="feature-list-item">
+                <i class="fa-solid fa-circle-check text-cyan-400 text-sm mt-1 shrink-0"></i>
+                <span><strong>Full-Cycle Development:</strong> End-to-end web apps from database schema design to cloud deployment.</span>
+              </li>
+              <li class="feature-list-item">
+                <i class="fa-solid fa-circle-check text-cyan-400 text-sm mt-1 shrink-0"></i>
+                <span><strong>High-Performance APIs:</strong> Secure, well-documented RESTful &amp; GraphQL endpoints engineered for scale.</span>
+              </li>
+              <li class="feature-list-item">
+                <i class="fa-solid fa-circle-check text-cyan-400 text-sm mt-1 shrink-0"></i>
+                <span><strong>Reactive Frontends:</strong> Modern, responsive web apps crafted with React, Vue.js, and TypeScript.</span>
+              </li>
+              <li class="feature-list-item">
+                <i class="fa-solid fa-circle-check text-cyan-400 text-sm mt-1 shrink-0"></i>
+                <span><strong>AI &amp; Smart Workflows:</strong> Seamlessly embedding intelligent automation into production web platforms.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Who I Help -->
+          <div class="about-feature-card">
+            <div class="card-header-icon bg-blue-500/10 text-blue-400 border border-blue-500/20">
+              <i class="fa-solid fa-handshake-angle text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Who I Help</h3>
+            <p class="text-slate-400 text-xs sm:text-sm mb-6 leading-relaxed">
+              Partnering with businesses and teams that demand reliable software:
+            </p>
+            <ul class="space-y-3.5">
+              <li class="feature-list-item">
+                <i class="fa-solid fa-circle-check text-blue-400 text-sm mt-1 shrink-0"></i>
+                <span><strong>Startups &amp; Founders:</strong> Transforming product visions into scalable, market-ready MVPs fast.</span>
+              </li>
+              <li class="feature-list-item">
+                <i class="fa-solid fa-circle-check text-blue-400 text-sm mt-1 shrink-0"></i>
+                <span><strong>Commercial Enterprises:</strong> Modernizing legacy systems, automating workflows, and eliminating error margins.</span>
+              </li>
+              <li class="feature-list-item">
+                <i class="fa-solid fa-circle-check text-blue-400 text-sm mt-1 shrink-0"></i>
+                <span><strong>Engineering Teams:</strong> Delivering backend architectures or frontend modules with clean docs and tests.</span>
+              </li>
+              <li class="feature-list-item">
+                <i class="fa-solid fa-circle-check text-blue-400 text-sm mt-1 shrink-0"></i>
+                <span><strong>Growing Businesses:</strong> Upgrading digital infrastructure to handle increasing user demand seamlessly.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 3: What Makes Me Different (USP) -->
+          <div class="about-feature-card">
+            <div class="card-header-icon bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <i class="fa-solid fa-gem text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Why Work With Me</h3>
+            <p class="text-slate-400 text-xs sm:text-sm mb-6 leading-relaxed">
+              Core advantages that set my software engineering apart:
+            </p>
+            <ul class="space-y-3.5">
+              <li class="feature-list-item">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-sm mt-1 shrink-0"></i>
+                <span><strong>Full Ownership Mindset:</strong> Capable of leading an entire platform solo or collaborating smoothly within agile teams.</span>
+              </li>
+              <li class="feature-list-item">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-sm mt-1 shrink-0"></i>
+                <span><strong>Performance Optimization:</strong> Profiling slow queries, implementing efficient caching, and tuning response times.</span>
+              </li>
+              <li class="feature-list-item">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-sm mt-1 shrink-0"></i>
+                <span><strong>Maintainable Codebase:</strong> Writing readable code that any future developer can easily extend and understand.</span>
+              </li>
+              <li class="feature-list-item">
+                <i class="fa-solid fa-circle-check text-emerald-400 text-sm mt-1 shrink-0"></i>
+                <span><strong>Business-First Perspective:</strong> Prioritizing features and technical decisions that drive tangible business value.</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- 3. Key Quantitative Highlights Bar (Compact 2x2 on mobile, 4 across on desktop) -->
+        <div class="about-stats-grid">
+          <div class="about-stat-card">
+            <span class="stat-number text-cyan-400">4+</span>
+            <span class="stat-title">Years Experience</span>
+            <span class="stat-desc">Full-stack software engineering</span>
+          </div>
+
+          <div class="about-stat-card">
+            <span class="stat-number text-blue-400">100%</span>
+            <span class="stat-title">Production Focus</span>
+            <span class="stat-desc">Resilient architectures &amp; uptime</span>
+          </div>
+
+          <div class="about-stat-card">
+            <span class="stat-number text-emerald-400">End-to-End</span>
+            <span class="stat-title">Complete Solutions</span>
+            <span class="stat-desc">Backend logic to reactive UI</span>
+          </div>
+
+          <div class="about-stat-card">
+            <span class="stat-number text-sky-400">SOLID</span>
+            <span class="stat-title">Clean Architecture</span>
+            <span class="stat-desc">Maintainable &amp; modular code</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- SERVICES SECTION (Engineering Solutions)       -->
+    <!-- ============================================== -->
+    <section id="services" class="py-28 relative overflow-hidden border-t border-slate-900">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-20">
+          <div class="section-badge mb-4">
+            <i class="fa-solid fa-cubes text-cyan-400"></i>
+            <span>Core Competencies</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Services &amp; Solutions
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg mt-4 leading-relaxed">
+            High-value engineering capabilities designed to deliver scalable, reliable, and production-ready software.
+          </p>
+        </div>
+
+        <!-- 4 Services Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          
+          <!-- Service 1: Full-Stack Web Development -->
+          <div class="service-card group">
+            <div>
+              <div class="service-icon-box">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                Full-Stack Web Applications
+              </h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                End-to-end development of robust, production-grade web platforms. From relational database modeling and business logic implementation to sleek, responsive user interfaces.
+              </p>
+              
+              <ul class="space-y-2.5 mb-8">
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Complete web platform engineering from concept to deployment</span>
+                </li>
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Relational database design (MySQL) with optimized Eloquent ORM</span>
+                </li>
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>User session management, authentication &amp; role security</span>
+                </li>
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Seamless multi-device responsiveness and cloud deployment</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-6 border-t border-slate-800/80">
+              <span class="service-tech-pill">Laravel</span>
+              <span class="service-tech-pill">React 18</span>
+              <span class="service-tech-pill">MySQL</span>
+              <span class="service-tech-pill">RESTful APIs</span>
+            </div>
+          </div>
+
+          <!-- Service 2: Backend Architecture & Custom APIs -->
+          <div class="service-card group">
+            <div>
+              <div class="service-icon-box">
+                <i class="fa-solid fa-server"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                Backend Architecture &amp; Custom APIs
+              </h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                Engineering resilient, secure, and maintainable server-side architectures designed to handle complex business logic and high throughput with zero friction.
+              </p>
+              
+              <ul class="space-y-2.5 mb-8">
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Modular Monolith &amp; clean architectural design patterns</span>
+                </li>
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>High-speed RESTful JSON APIs for mobile and web consumption</span>
+                </li>
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Query profiling, database indexing &amp; performance tuning</span>
+                </li>
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Strict data protection, token authentication (Sanctum/JWT) &amp; RBAC</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-6 border-t border-slate-800/80">
+              <span class="service-tech-pill">PHP 8.2+</span>
+              <span class="service-tech-pill">Laravel 12</span>
+              <span class="service-tech-pill">API Security</span>
+              <span class="service-tech-pill">Optimization</span>
+            </div>
+          </div>
+
+          <!-- Service 3: Enterprise Dashboards & Management Systems -->
+          <div class="service-card group">
+            <div>
+              <div class="service-icon-box">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                Enterprise Dashboards &amp; Operations
+              </h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                Developing specialized internal portals, administrative command centers, and workflow engines that automate operations and eliminate manual calculation errors.
+              </p>
+              
+              <ul class="space-y-2.5 mb-8">
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Multi-branch management &amp; centralized data governance</span>
+                </li>
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Running ledger balance tracking &amp; automated accounting workflows</span>
+                </li>
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Interactive data visualization &amp; analytics monitoring charts</span>
+                </li>
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Automated PDF report generation and instant Excel data pipelines</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-6 border-t border-slate-800/80">
+              <span class="service-tech-pill">Admin Portals</span>
+              <span class="service-tech-pill">Financial Ledgers</span>
+              <span class="service-tech-pill">Data Analytics</span>
+              <span class="service-tech-pill">PDF / Excel Export</span>
+            </div>
+          </div>
+
+          <!-- Service 4: Modern Front-End Engineering -->
+          <div class="service-card group">
+            <div>
+              <div class="service-icon-box">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                Modern Front-End Engineering
+              </h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                Transforming user interface designs and wireframes into responsive, accessible, and fast web applications with rich interactivity and seamless state management.
+              </p>
+              
+              <ul class="space-y-2.5 mb-8">
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Component-driven Single Page Applications (React / TypeScript / Vite)</span>
+                </li>
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Native RTL (Arabic) &amp; LTR bilingual layout implementations</span>
+                </li>
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Modern styling with TailwindCSS, Ant Design &amp; Bootstrap 5.3</span>
+                </li>
+                <li class="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                  <i class="fa-solid fa-check text-cyan-400 text-xs"></i>
+                  <span>Predictable state management &amp; robust asynchronous API binding</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-6 border-t border-slate-800/80">
+              <span class="service-tech-pill">React 18</span>
+              <span class="service-tech-pill">TypeScript</span>
+              <span class="service-tech-pill">TailwindCSS</span>
+              <span class="service-tech-pill">Ant Design / RTL</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Consultation Banner Callout -->
+        <div class="p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-slate-900/90 border border-cyan-500/20 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="text-left">
+            <h4 class="text-xl sm:text-2xl font-bold text-white mb-2">Have a technical project or custom requirement?</h4>
+            <p class="text-slate-400 text-sm">Let's discuss how we can engineer a scalable, production-ready solution tailored to your goals.</p>
+          </div>
+          <a href="#contact" class="btn-hero-primary shrink-0">
+            <span>Discuss Your Project</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- SKILLS & TECHNICAL ARSENAL SECTION             -->
+    <!-- ============================================== -->
+    <section id="skills" class="py-28 relative overflow-hidden border-t border-slate-900">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="section-badge mb-4">
+            <i class="fa-solid fa-microchip text-cyan-400"></i>
+            <span>Technical Arsenal</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Skills &amp; Technologies
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg mt-4 leading-relaxed">
+            Carefully selected tools and engineering frameworks I use to architect robust, scalable software.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="skills-filter-tabs flex items-center justify-center flex-wrap gap-3 sm:gap-4 mb-14">
+          <button type="button" class="skill-tab-btn active" data-filter="all">
+            <i class="fa-solid fa-shapes"></i>
+            <span>All Technologies</span>
+          </button>
+          <button type="button" class="skill-tab-btn" data-filter="backend">
+            <i class="fa-solid fa-server"></i>
+            <span>Backend &amp; APIs</span>
+          </button>
+          <button type="button" class="skill-tab-btn" data-filter="frontend">
+            <i class="fa-solid fa-code"></i>
+            <span>Frontend &amp; UI</span>
+          </button>
+          <button type="button" class="skill-tab-btn" data-filter="database">
+            <i class="fa-solid fa-database"></i>
+            <span>Databases &amp; Architecture</span>
+          </button>
+          <button type="button" class="skill-tab-btn" data-filter="tools">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <span>Dev Tools &amp; Workflow</span>
+          </button>
+        </div>
+
+        <!-- Skills Grid: 4 Specialized Domain Pillars -->
+        <div class="skills-showcase-grid" id="skillsGrid">
+
+          <!-- Pillar 1: Backend Engineering & API Systems -->
+          <div class="skill-domain-card" data-category="backend">
+            <div class="skill-domain-header">
+              <div class="skill-domain-icon bg-indigo-500/10 text-indigo-400 border-indigo-500/20">
+                <i class="fa-solid fa-server"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">Backend Engineering &amp; APIs</h3>
+                <p class="text-slate-400 text-xs mt-0.5">Scalable servers, business logic &amp; API security</p>
+              </div>
+            </div>
+
+            <div class="skill-items-grid">
+              <!-- PHP -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-indigo-400"><i class="fa-brands fa-php"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">PHP 8.x</span>
+                  <span class="skill-badge-meta">Modern OOP &amp; Typing</span>
+                </div>
+              </div>
+              <!-- Laravel -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-red-400"><i class="fa-brands fa-laravel"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Laravel 11 / 12</span>
+                  <span class="skill-badge-meta">Service Layer &amp; Eloquent</span>
+                </div>
+              </div>
+              <!-- RESTful APIs -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-cyan-400"><i class="fa-solid fa-network-wired"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">RESTful APIs</span>
+                  <span class="skill-badge-meta">JSON Contracts &amp; Endpoints</span>
+                </div>
+              </div>
+              <!-- MySQL -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-sky-400"><i class="fa-solid fa-database"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">MySQL</span>
+                  <span class="skill-badge-meta">Schema Design &amp; Indexing</span>
+                </div>
+              </div>
+              <!-- Auth & RBAC -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-emerald-400"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Auth &amp; RBAC</span>
+                  <span class="skill-badge-meta">Sanctum &amp; Role Permissions</span>
+                </div>
+              </div>
+              <!-- Clean Architecture -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-violet-400"><i class="fa-solid fa-sitemap"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Clean Architecture</span>
+                  <span class="skill-badge-meta">MVC &amp; SOLID Principles</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 2: Frontend & Modern User Interfaces -->
+          <div class="skill-domain-card" data-category="frontend">
+            <div class="skill-domain-header">
+              <div class="skill-domain-icon bg-cyan-500/10 text-cyan-400 border-cyan-500/20">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">Frontend &amp; Modern SPAs</h3>
+                <p class="text-slate-400 text-xs mt-0.5">Component-driven SPAs, reactive state &amp; UI design</p>
+              </div>
+            </div>
+
+            <div class="skill-items-grid">
+              <!-- React 18 -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-cyan-400"><i class="fa-brands fa-react"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">React 18</span>
+                  <span class="skill-badge-meta">Components &amp; Hooks</span>
+                </div>
+              </div>
+              <!-- TypeScript -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-blue-400"><i class="fa-solid fa-t"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">TypeScript</span>
+                  <span class="skill-badge-meta">Type Safety &amp; Interfaces</span>
+                </div>
+              </div>
+              <!-- JavaScript ES6+ -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-yellow-400"><i class="fa-brands fa-js"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">JavaScript (ES6+)</span>
+                  <span class="skill-badge-meta">Async/Await &amp; DOM APIs</span>
+                </div>
+              </div>
+              <!-- TailwindCSS -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-teal-400"><i class="fa-solid fa-wind"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">TailwindCSS</span>
+                  <span class="skill-badge-meta">Utility-First Design</span>
+                </div>
+              </div>
+              <!-- Bootstrap 5.3 -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-purple-400"><i class="fa-brands fa-bootstrap"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Bootstrap 5.3</span>
+                  <span class="skill-badge-meta">Responsive Grid &amp; UI</span>
+                </div>
+              </div>
+              <!-- Alpine.js & Blade -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-emerald-400"><i class="fa-solid fa-bolt"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Alpine.js &amp; Blade</span>
+                  <span class="skill-badge-meta">Lightweight Reactivity</span>
+                </div>
+              </div>
+              <!-- RTL Support -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-amber-400"><i class="fa-solid fa-align-right"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">RTL Localization</span>
+                  <span class="skill-badge-meta">Bilingual Arabic/English UI</span>
+                </div>
+              </div>
+              <!-- HTML5 & CSS3 -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-orange-400"><i class="fa-brands fa-html5"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">HTML5 &amp; CSS3</span>
+                  <span class="skill-badge-meta">Semantic &amp; Modern Layouts</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 3: Databases & Architecture Engineering -->
+          <div class="skill-domain-card" data-category="database">
+            <div class="skill-domain-header">
+              <div class="skill-domain-icon bg-emerald-500/10 text-emerald-400 border-emerald-500/20">
+                <i class="fa-solid fa-database"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">Databases &amp; System Engines</h3>
+                <p class="text-slate-400 text-xs mt-0.5">Relational models, ledgers &amp; complex domain logic</p>
+              </div>
+            </div>
+
+            <div class="skill-items-grid">
+              <!-- Relational Normalization -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-emerald-400"><i class="fa-solid fa-table-cells"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Schema Normalization</span>
+                  <span class="skill-badge-meta">3NF, Foreign Keys &amp; Indexes</span>
+                </div>
+              </div>
+              <!-- Eloquent ORM -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-red-400"><i class="fa-solid fa-diagram-project"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Eloquent ORM</span>
+                  <span class="skill-badge-meta">Eager Loading &amp; Relations</span>
+                </div>
+              </div>
+              <!-- Running Balance Ledger -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-cyan-400"><i class="fa-solid fa-scale-balanced"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Ledger Engines</span>
+                  <span class="skill-badge-meta">Running Balance &amp; Accounting</span>
+                </div>
+              </div>
+              <!-- Multi-Branch Scoping -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-blue-400"><i class="fa-solid fa-building"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Multi-Branch Scoping</span>
+                  <span class="skill-badge-meta">Isolated Tenant Data Access</span>
+                </div>
+              </div>
+              <!-- Migrations & Seeders -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-purple-400"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Migrations &amp; Seeders</span>
+                  <span class="skill-badge-meta">Automated Versioning</span>
+                </div>
+              </div>
+              <!-- Transactions & ACID -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-teal-400"><i class="fa-solid fa-lock"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Database Transactions</span>
+                  <span class="skill-badge-meta">ACID &amp; Atomic Operations</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 4: Dev Tools, Workflow & Reporting -->
+          <div class="skill-domain-card" data-category="tools">
+            <div class="skill-domain-header">
+              <div class="skill-domain-icon bg-orange-500/10 text-orange-400 border-orange-500/20">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">Dev Tools &amp; Production Workflow</h3>
+                <p class="text-slate-400 text-xs mt-0.5">Source control, API verification &amp; dynamic reports</p>
+              </div>
+            </div>
+
+            <div class="skill-items-grid">
+              <!-- Git -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-orange-500"><i class="fa-brands fa-git-alt"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Git</span>
+                  <span class="skill-badge-meta">Branching &amp; Version Control</span>
+                </div>
+              </div>
+              <!-- GitHub -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-white"><i class="fa-brands fa-github"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">GitHub</span>
+                  <span class="skill-badge-meta">Repos, PRs &amp; Collaboration</span>
+                </div>
+              </div>
+              <!-- Postman -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-orange-400"><i class="fa-solid fa-paper-plane"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Postman</span>
+                  <span class="skill-badge-meta">API Testing &amp; Verification</span>
+                </div>
+              </div>
+              <!-- Vite & NPM -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-purple-400"><i class="fa-solid fa-bolt-lightning"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Vite &amp; NPM</span>
+                  <span class="skill-badge-meta">Asset Bundling &amp; Modules</span>
+                </div>
+              </div>
+              <!-- Composer -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-amber-500"><i class="fa-solid fa-cube"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Composer</span>
+                  <span class="skill-badge-meta">PHP Package Lifecycle</span>
+                </div>
+              </div>
+              <!-- DomPDF -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-red-400"><i class="fa-solid fa-file-pdf"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">DomPDF</span>
+                  <span class="skill-badge-meta">Dynamic PDF Invoices &amp; Rx</span>
+                </div>
+              </div>
+              <!-- Chart.js -->
+              <div class="skill-item-badge">
+                <div class="skill-badge-icon text-pink-400"><i class="fa-solid fa-chart-pie"></i></div>
+                <div class="skill-badge-content">
+                  <span class="skill-badge-name">Chart.js</span>
+                  <span class="skill-badge-meta">Data Telemetry Dashboards</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Computer Science Foundation Footer Callout -->
+        <div class="cs-foundation-callout p-6 sm:p-8 rounded-2xl bg-slate-900/40 border border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl shrink-0">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-bold text-base sm:text-lg">Computer Science Academic Foundation</h4>
+              <p class="text-slate-400 text-xs sm:text-sm mt-0.5">Grounded in fundamental software engineering principles, not just framework syntax.</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="cs-badge">Data Structures &amp; Algorithms</span>
+            <span class="cs-badge">OOP &amp; SOLID Design</span>
+            <span class="cs-badge">Database Theory &amp; ACID</span>
+            <span class="cs-badge">System Analysis &amp; SDLC</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- EDUCATION & EXPERIENCE SECTION                  -->
+    <!-- ============================================== -->
+    <section id="experience" class="py-28 relative overflow-hidden border-t border-slate-900">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="section-badge mb-4">
+            <i class="fa-solid fa-graduation-cap text-cyan-400"></i>
+            <span>Academic Foundation &amp; Experience</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Education &amp; Experience
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+          
+          <!-- Column 1: Academic Degree & Internships (Degree first, then NTI & Digital Training Center) -->
+          <div class="experience-track-card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 text-cyan-400 font-mono text-sm uppercase tracking-wider mb-6 font-semibold pb-4 border-b border-slate-800">
+                <i class="fa-solid fa-graduation-cap text-base"></i>
+                <span>Academic Degree &amp; Internships</span>
+              </div>
+
+              <!-- Item 1: Bachelor of Computer Science (First) -->
+              <div class="experience-item">
+                <span class="experience-item-dot"></span>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <h3 class="text-xl font-bold text-white">Bachelor of Computer Science</h3>
+                  <span class="experience-date-badge"><i class="fa-solid fa-user-graduate"></i> Academic Degree</span>
+                </div>
+                <div class="text-cyan-400 font-medium text-sm mb-3 flex items-center gap-2">
+                  <span>Computer Science Graduate</span>
+                </div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                  Rigorous foundational studies covering core computer science disciplines: algorithms, data structures, object-oriented programming (OOP), relational database systems, and software engineering principles.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="service-tech-pill">Computer Science</span>
+                  <span class="service-tech-pill">Algorithms &amp; Data Structures</span>
+                  <span class="service-tech-pill">OOP &amp; SOLID</span>
+                  <span class="service-tech-pill">Software Engineering</span>
+                </div>
+              </div>
+
+              <!-- Item 2: NTI Web Design Internship (Current) -->
+              <div class="experience-item">
+                <span class="experience-item-dot"></span>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <h3 class="text-xl font-bold text-white">Web Design Track — Intern</h3>
+                  <span class="experience-date-badge"><i class="fa-regular fa-calendar"></i> Current</span>
+                </div>
+                <div class="text-cyan-400 font-medium text-sm mb-3 flex items-center gap-2">
+                  <span>NTI — National Telecommunication Institute (MCIT)</span>
+                </div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                  Specialized engineering internship under the Ministry of Communications and Information Technology (MCIT), focused on frontend architecture, responsive design systems, cross-browser performance, and modern web interfaces.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="service-tech-pill">Web Design Track</span>
+                  <span class="service-tech-pill">Frontend Architecture</span>
+                  <span class="service-tech-pill">Responsive UI/UX</span>
+                  <span class="service-tech-pill">NTI / MCIT</span>
+                </div>
+              </div>
+
+              <!-- Item 3: Digital Training Center Internship (2024) -->
+              <div class="experience-item">
+                <span class="experience-item-dot"></span>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <h3 class="text-xl font-bold text-white">Full-Stack Development Intern</h3>
+                  <span class="experience-date-badge"><i class="fa-regular fa-calendar"></i> 2024</span>
+                </div>
+                <div class="text-cyan-400 font-medium text-sm mb-3 flex items-center gap-2">
+                  <span>Digital Training Center</span>
+                </div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                  Hands-on engineering internship focused on full-stack web applications: backend logic and architectural patterns with PHP &amp; Laravel, relational database modeling with MySQL, and responsive interface development.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="service-tech-pill">Full-Stack Internship</span>
+                  <span class="service-tech-pill">PHP &amp; Laravel</span>
+                  <span class="service-tech-pill">MySQL Modeling</span>
+                  <span class="service-tech-pill">RESTful APIs</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Column 2: Practical & Professional Experience (Freelance & Client Solutions) -->
+          <div class="experience-track-card flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 text-cyan-400 font-mono text-sm uppercase tracking-wider mb-6 font-semibold pb-4 border-b border-slate-800">
+                <i class="fa-solid fa-briefcase text-base"></i>
+                <span>Practical &amp; Professional Experience</span>
+              </div>
+
+              <!-- Item 1: Freelance Full-Stack Developer -->
+              <div class="experience-item">
+                <span class="experience-item-dot"></span>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <h3 class="text-xl font-bold text-white">Freelance Full-Stack Developer</h3>
+                  <span class="experience-date-badge"><i class="fa-regular fa-calendar"></i> 2022 — Present</span>
+                </div>
+                <div class="text-cyan-400 font-medium text-sm mb-3 flex items-center gap-2">
+                  <span>Independent Client &amp; Production Software Solutions</span>
+                </div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                  Engineering custom full-stack solutions, client management portals, running ledger accounting balance engines, and secure backend APIs for businesses and individual clients with zero error margins.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="service-tech-pill">Full-Stack Freelance</span>
+                  <span class="service-tech-pill">Production Systems</span>
+                  <span class="service-tech-pill">Client Solutions</span>
+                  <span class="service-tech-pill">Laravel &amp; React</span>
+                </div>
+              </div>
+
+              <!-- Item 2: Architecture & Production Systems Engineering -->
+              <div class="experience-item">
+                <span class="experience-item-dot"></span>
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <h3 class="text-xl font-bold text-white">System Architecture &amp; API Engineering</h3>
+                  <span class="experience-date-badge"><i class="fa-solid fa-cubes"></i> Applied Engineering</span>
+                </div>
+                <div class="text-cyan-400 font-medium text-sm mb-3 flex items-center gap-2">
+                  <span>Production-Grade Architecture</span>
+                </div>
+                <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                  Architecting resilient database schemas, optimizing complex multi-table queries, implementing granular role-based access control (RBAC), and delivering automated business reporting workflows.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="service-tech-pill">Relational Modeling</span>
+                  <span class="service-tech-pill">Clean Architecture</span>
+                  <span class="service-tech-pill">Role Security (RBAC)</span>
+                  <span class="service-tech-pill">Optimization</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Practical Commitment Banner -->
+        <div class="p-6 sm:p-8 rounded-2xl bg-slate-900/40 border border-slate-800 text-center max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4 text-left">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0 text-xl">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-bold text-base">Theory Backed by Real-World Implementation</h4>
+              <p class="text-slate-400 text-xs sm:text-sm mt-0.5">Every engineering internship and academic foundation is actively proven through production deployments and real client projects.</p>
+            </div>
+          </div>
+          <a href="#projects" class="btn-hero-secondary text-xs py-2.5 px-5 shrink-0">
+            <span>View Delivered Work</span>
+            <i class="fa-solid fa-arrow-down text-[10px]"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- FEATURED PROJECTS SECTION                      -->
+    <!-- ============================================== -->
+    <section id="projects" class="py-28 relative overflow-hidden border-t border-slate-900">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="section-badge mb-4">
+            <i class="fa-solid fa-laptop-code"></i>
+            <span>Featured Works</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Featured Projects
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg mt-4 leading-relaxed">
+            Production-grade systems engineered with clean architecture, real-world scale, and measurable outcomes.
+          </p>
+        </div>
+
+        <!-- Projects Grid (Compact, High-Contrast & Scalable) -->
+        <div class="projects-showcase-grid">
+
+          <!-- ===== PROJECT 1: Trovo ===== -->
+          <div class="project-showcase-card group" data-project="trovo">
+            <!-- Top Media Container -->
+            <div class="project-card-media" onclick="openProjectModal('trovo')">
+              <img src="./assets/trovo_concept.jpg" alt="Trovo — Digital Wellness & Behavioral Telemetry Platform" loading="lazy">
+              <div class="project-media-overlay">
+                <button type="button" class="project-media-action-btn" onclick="openProjectModal('trovo'); event.stopPropagation();" title="View Full Project Details">
+                  <i class="fa-solid fa-eye"></i>
+                  <span>Details</span>
+                </button>
+                <a href="https://github.com/moaaz-amgad/trovo" target="_blank" rel="noopener noreferrer" class="project-media-action-btn" onclick="event.stopPropagation();" title="GitHub Repository">
+                  <i class="fa-brands fa-github"></i>
+                  <span>Code</span>
+                </a>
+              </div>
+              <div class="project-card-num-badge">01</div>
+            </div>
+
+            <!-- Crisp Card Content (Solid Dark, High Contrast) -->
+            <div class="project-card-body">
+              <div class="project-card-header-row">
+                <span class="project-category-tag">
+                  <i class="fa-solid fa-brain text-[10px]"></i>
+                  <span>AI &amp; Behavioral Platform</span>
+                </span>
+                <button type="button" onclick="openProjectModal('trovo')" class="project-arrow-trigger" title="Open Case Study">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </button>
+              </div>
+
+              <h3 class="project-card-title" onclick="openProjectModal('trovo')">Trovo</h3>
+
+              <p class="project-card-summary">
+                AI-powered digital wellness platform built with a cross-functional team (Mobile App, AI Models &amp; UI/UX). Detects dopamine addiction &amp; cognitive fatigue via behavioral telemetry and gamified neuro-tests.
+              </p>
+
+              <!-- Team & Scope Pill -->
+              <div class="project-team-callout">
+                <i class="fa-solid fa-users text-cyan-400 text-[10px]"></i>
+                <span>Team Ecosystem: Flutter App &bull; AI Models &bull; UI/UX &bull; Laravel API</span>
+              </div>
+
+              <div class="project-card-tech-pills">
+                <span>Laravel</span>
+                <span>MySQL</span>
+                <span>REST API</span>
+                <span>Flutter</span>
+                <span>XGBoost AI</span>
+              </div>
+
+              <!-- Card Action Footer -->
+              <div class="project-card-actions">
+                <button type="button" onclick="openProjectModal('trovo')" class="btn-project-primary">
+                  <span>View Details</span>
+                  <i class="fa-solid fa-arrow-right text-[11px]"></i>
+                </button>
+                <a href="https://github.com/moaaz-amgad/trovo" target="_blank" rel="noopener noreferrer" class="btn-project-github" title="View on GitHub">
+                  <i class="fa-brands fa-github"></i>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== PROJECT 2: HR & Payroll System ===== -->
+          <div class="project-showcase-card group" data-project="hr">
+            <!-- Top Media Container -->
+            <div class="project-card-media" onclick="openProjectModal('hr')">
+              <img src="./assets/hr_concept.jpg" alt="HR & Payroll System — Enterprise Management" loading="lazy">
+              <div class="project-media-overlay">
+                <button type="button" class="project-media-action-btn" onclick="openProjectModal('hr'); event.stopPropagation();" title="View Full Project Details">
+                  <i class="fa-solid fa-eye"></i>
+                  <span>Details</span>
+                </button>
+                <a href="https://github.com/moaaz-amgad/hr-payroll-system" target="_blank" rel="noopener noreferrer" class="project-media-action-btn" onclick="event.stopPropagation();" title="GitHub Repository">
+                  <i class="fa-brands fa-github"></i>
+                  <span>Code</span>
+                </a>
+              </div>
+              <div class="project-card-num-badge">02</div>
+            </div>
+
+            <!-- Crisp Card Content (Solid Dark, High Contrast) -->
+            <div class="project-card-body">
+              <div class="project-card-header-row">
+                <span class="project-category-tag">
+                  <i class="fa-solid fa-building text-[10px]"></i>
+                  <span>Enterprise System</span>
+                </span>
+                <button type="button" onclick="openProjectModal('hr')" class="project-arrow-trigger" title="Open Case Study">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </button>
+              </div>
+
+              <h3 class="project-card-title" onclick="openProjectModal('hr')">HR &amp; Payroll System</h3>
+
+              <p class="project-card-summary">
+                Multi-branch enterprise workforce &amp; automated payroll platform with running balance ledgers, double-entry financial accounting, and Egyptian labor tax compliance.
+              </p>
+
+              <!-- Scope Callout -->
+              <div class="project-team-callout">
+                <i class="fa-solid fa-network-wired text-cyan-400 text-[10px]"></i>
+                <span>Architecture: Multi-Branch &bull; Ledger Engine &bull; RBAC</span>
+              </div>
+
+              <div class="project-card-tech-pills">
+                <span>Laravel 12</span>
+                <span>React 18</span>
+                <span>TypeScript</span>
+                <span>Ant Design</span>
+                <span>MySQL</span>
+              </div>
+
+              <!-- Card Action Footer -->
+              <div class="project-card-actions">
+                <button type="button" onclick="openProjectModal('hr')" class="btn-project-primary">
+                  <span>View Details</span>
+                  <i class="fa-solid fa-arrow-right text-[11px]"></i>
+                </button>
+                <a href="https://github.com/moaaz-amgad/hr-payroll-system" target="_blank" rel="noopener noreferrer" class="btn-project-github" title="View on GitHub">
+                  <i class="fa-brands fa-github"></i>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== PROJECT 3: Dermatology Clinic EMR ===== -->
+          <div class="project-showcase-card group" data-project="clinic">
+            <!-- Top Media Container -->
+            <div class="project-card-media" onclick="openProjectModal('clinic')">
+              <img src="./assets/clinic_concept.jpg" alt="Dermatology Clinic EMR — Medical Records System" loading="lazy">
+              <div class="project-media-overlay">
+                <button type="button" class="project-media-action-btn" onclick="openProjectModal('clinic'); event.stopPropagation();" title="View Full Project Details">
+                  <i class="fa-solid fa-eye"></i>
+                  <span>Details</span>
+                </button>
+                <a href="https://github.com/moaaz-amgad/dermatology-clinic-emr" target="_blank" rel="noopener noreferrer" class="project-media-action-btn" onclick="event.stopPropagation();" title="GitHub Repository">
+                  <i class="fa-brands fa-github"></i>
+                  <span>Code</span>
+                </a>
+              </div>
+              <div class="project-card-num-badge">03</div>
+            </div>
+
+            <!-- Crisp Card Content (Solid Dark, High Contrast) -->
+            <div class="project-card-body">
+              <div class="project-card-header-row">
+                <span class="project-category-tag">
+                  <i class="fa-solid fa-stethoscope text-[10px]"></i>
+                  <span>Healthcare EMR</span>
+                </span>
+                <button type="button" onclick="openProjectModal('clinic')" class="project-arrow-trigger" title="Open Case Study">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </button>
+              </div>
+
+              <h3 class="project-card-title" onclick="openProjectModal('clinic')">Dermatology Clinic EMR</h3>
+
+              <p class="project-card-summary">
+                Specialized medical records system for dermatology clinics: Fitzpatrick skin typing, cosmetic session counters, before/after photo galleries, and digital prescription generation.
+              </p>
+
+              <!-- Scope Callout -->
+              <div class="project-team-callout">
+                <i class="fa-solid fa-notes-medical text-cyan-400 text-[10px]"></i>
+                <span>Clinical Workflows: Fitzpatrick Types &bull; DomPDF &bull; Chart.js</span>
+              </div>
+
+              <div class="project-card-tech-pills">
+                <span>Laravel 12</span>
+                <span>Bootstrap 5.3</span>
+                <span>Alpine.js</span>
+                <span>DomPDF</span>
+                <span>MySQL</span>
+              </div>
+
+              <!-- Card Action Footer -->
+              <div class="project-card-actions">
+                <button type="button" onclick="openProjectModal('clinic')" class="btn-project-primary">
+                  <span>View Details</span>
+                  <i class="fa-solid fa-arrow-right text-[11px]"></i>
+                </button>
+                <a href="https://github.com/moaaz-amgad/dermatology-clinic-emr" target="_blank" rel="noopener noreferrer" class="btn-project-github" title="View on GitHub">
+                  <i class="fa-brands fa-github"></i>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+    <!-- ============================================== -->
+    <!-- CONTACT SECTION (Dedicated & Complete)         -->
+    <!-- ============================================== -->
+    <section id="contact" class="py-28 relative overflow-hidden border-t border-slate-900">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="section-badge mb-4">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>Get In Touch</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Contact Me
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg mt-4 leading-relaxed">
+            I'm always open to discussing new projects, technical challenges, or full-time opportunities.
+          </p>
+        </div>
+
+        <!-- Contact Layout: Left = Contact Links, Right = Location Card -->
+        <div class="contact-main-grid">
+          
+          <!-- Left: Contact Links in requested exact order -->
+          <div class="contact-links-stack">
+
+            <!-- 1. Email -->
+            <a href="mailto:moaazamjad83@gmail.com" class="contact-link-row group">
+              <div class="contact-link-icon" style="background:rgba(34,211,238,0.08);color:#22d3ee;">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="contact-link-info">
+                <span class="contact-link-label">EMAIL ME</span>
+                <span class="contact-link-value">moaazamjad83@gmail.com</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-cyan-400 transition-colors text-xs"></i>
+            </a>
+
+            <!-- 2. LinkedIn -->
+            <a href="https://www.linkedin.com/in/moaaz-amgad/" target="_blank" rel="noopener noreferrer" class="contact-link-row group">
+              <div class="contact-link-icon" style="background:rgba(56,189,248,0.08);color:#38bdf8;">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+              <div class="contact-link-info">
+                <span class="contact-link-label">LINKEDIN</span>
+                <span class="contact-link-value">moaaz-amgad</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-sky-400 transition-colors text-xs"></i>
+            </a>
+
+            <!-- 3. GitHub -->
+            <a href="https://github.com/moaaz-amgad" target="_blank" rel="noopener noreferrer" class="contact-link-row group">
+              <div class="contact-link-icon" style="background:rgba(148,163,184,0.08);color:#cbd5e1;">
+                <i class="fa-brands fa-github"></i>
+              </div>
+              <div class="contact-link-info">
+                <span class="contact-link-label">GITHUB</span>
+                <span class="contact-link-value">MOAAZ-AMGAD</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-white transition-colors text-xs"></i>
+            </a>
+
+            <!-- 4. WhatsApp / Phone -->
+            <a href="https://wa.me/201033081345?text=Hello%20Moaaz,%20I%20reviewed%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank" rel="noopener noreferrer" class="contact-link-row group">
+              <div class="contact-link-icon" style="background:rgba(16,185,129,0.08);color:#10b981;">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <div class="contact-link-info">
+                <span class="contact-link-label">WHATSAPP</span>
+                <span class="contact-link-value">+20 103 308 1345</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-emerald-400 transition-colors text-xs"></i>
+            </a>
+
+            <!-- 5. Instagram -->
+            <a href="https://www.instagram.com/_moaaz_amgad/?hl=en" target="_blank" rel="noopener noreferrer" class="contact-link-row group">
+              <div class="contact-link-icon" style="background:rgba(236,72,153,0.08);color:#ec4899;">
+                <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div class="contact-link-info">
+                <span class="contact-link-label">INSTAGRAM</span>
+                <span class="contact-link-value">_moaaz_amgad</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-pink-400 transition-colors text-xs"></i>
+            </a>
+
+          </div>
+
+          <!-- Right: Location & Availability Card -->
+          <div class="contact-location-card">
+            <div class="location-pin-wrapper">
+              <div class="location-pin-circle">
+                <i class="fa-solid fa-location-dot text-2xl text-emerald-400"></i>
+              </div>
+              <div class="location-pin-pulse"></div>
+            </div>
+            <h3 class="location-city-title">Cairo, Egypt</h3>
+            <p class="location-availability-text">
+              Available for remote work worldwide,<br>
+              local roles in Egypt &amp; freelance projects.
+            </p>
+            <div class="location-status-badge">
+              <span class="location-status-dot"></span>
+              <span>Available For Opportunities</span>
+            </div>
+          </div>
+
+        </div></div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Professional Footer -->
+  <footer class="portfolio-footer">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h3 class="footer-name text-gradient-blue">Moaaz Amgad</h3>
+      <p class="footer-tagline">
+        Architecting robust full-stack systems &amp; scalable web solutions. Let's build the next generation of high-performance applications.
+      </p>
+      <div class="footer-social-icons">
+        <a href="https://www.linkedin.com/in/moaaz-amgad/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/moaaz-amgad" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2026 MOAAZ AMGAD. ALL RIGHTS RESERVED.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================== -->
+  <!-- PROJECT DETAIL MODAL (Direct Root Child)       -->
+  <!-- ============================================== -->
+  <!-- ============================================== -->
+  <!-- PROJECT DETAIL MODAL (Direct Root Child)       -->
+  <!-- ============================================== -->
+  <div id="projectModal" class="project-modal-overlay" onclick="closeProjectModal(event)" role="dialog" aria-modal="true">
+    <div class="project-modal-container" onclick="event.stopPropagation()">
+
+      <!-- Close Button (Top-Right Floating) -->
+      <button type="button" class="project-modal-close" onclick="closeProjectModal(event)" aria-label="Close project modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- 1. Pure Media Showcase Cover (Clean, No Overlaid Text or Buttons) -->
+      <div class="project-modal-media-cover">
+        <img id="modalHeroImg" src="" alt="" loading="lazy">
+      </div>
+
+      <!-- 2. Project Header Bar (Below the image) -->
+      <div class="project-modal-header-bar">
+        <div class="project-modal-header-info">
+          <div id="modalBadge" class="project-modal-badge"></div>
+          <h2 id="modalTitle" class="project-modal-title"></h2>
+          <p id="modalSubtitle" class="project-modal-subtitle"></p>
+        </div>
+        <div class="project-modal-header-action">
+          <a id="modalGithubBtn" href="" target="_blank" rel="noopener noreferrer" class="btn-modal-github-action" title="View Project Repository on GitHub">
+            <i class="fa-brands fa-github text-2xl"></i>
+            <div class="flex flex-col text-left">
+              <span class="text-[10px] uppercase font-mono tracking-wider text-slate-400">Repository</span>
+              <span class="text-sm font-bold text-white flex items-center gap-1.5">
+                View Source Code
+                <i class="fa-solid fa-arrow-up-right-from-square text-[11px] text-cyan-400"></i>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Modal Body Content -->
+      <div class="project-modal-body">
+
+        <!-- Team Ecosystem Banner (Displayed for Trovo) -->
+        <div id="modalTeamBanner" class="project-modal-team-banner">
+          <div class="banner-icon"><i class="fa-solid fa-users-gear"></i></div>
+          <div class="banner-text">
+            <strong>Cross-Functional Team Execution:</strong>
+            <span id="modalTeamDesc">Engineered alongside Mobile (Flutter), AI/ML, and UI/UX specialists. Solely architected and delivered the complete backend API suite, database infrastructure, and admin dashboards.</span>
+          </div>
+        </div>
+
+        <!-- Row 1: Problem & My Role -->
+        <div class="project-modal-grid-2">
+          <div class="project-modal-info-block">
+            <div class="project-modal-info-icon">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h4>The Challenge / Problem</h4>
+            <p id="modalProblem"></p>
+          </div>
+          <div class="project-modal-info-block">
+            <div class="project-modal-info-icon">
+              <i class="fa-solid fa-user-gear"></i>
+            </div>
+            <h4>My Engineering Role</h4>
+            <p id="modalRole"></p>
+          </div>
+        </div>
+
+        <!-- Row 2: Architecture Highlights -->
+        <div class="project-modal-section">
+          <h4 class="project-modal-section-title">
+            <i class="fa-solid fa-sitemap"></i>
+            <span>Architecture &amp; Engineering Highlights</span>
+          </h4>
+          <ul id="modalHighlights" class="project-modal-highlights-list"></ul>
+        </div>
+
+        <!-- Row 3: Tech Stack -->
+        <div class="project-modal-section">
+          <h4 class="project-modal-section-title">
+            <i class="fa-solid fa-microchip"></i>
+            <span>Technology Stack</span>
+          </h4>
+          <div id="modalTechStack" class="project-modal-tech-grid"></div>
+        </div>
+
+        <!-- Row 4: Key Metrics / Deliverables -->
+        <div class="project-modal-section">
+          <h4 class="project-modal-section-title">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Key Deliverables &amp; Outcomes</span>
+          </h4>
+          <div id="modalMetrics" class="project-modal-metrics-row"></div>
+        </div>
+
+      </div>
+
+      <!-- 4. Modal Bottom Action Footer -->
+      <div class="project-modal-footer">
+        <div class="text-slate-400 text-xs font-mono flex items-center gap-2">
+          <i class="fa-solid fa-code-commit text-cyan-400"></i>
+          <span>Production Architecture &bull; Clean Code</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <a id="modalGithubBtnBottom" href="" target="_blank" rel="noopener noreferrer" class="btn-modal-github-bottom">
+            <i class="fa-brands fa-github text-sm"></i>
+            <span>GitHub Repository</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+          <button type="button" onclick="closeProjectModal()" class="btn-modal-close-bottom">
+            <span>Close Case Study</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
