@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initPortraitParallax();
   initSkillsFilter();
+  initWelcomeIntro();
 });
 
 // 1. Navbar Scroll Effect & Active Link Highlight
@@ -578,3 +579,60 @@ function initSkillsFilter() {
     });
   });
 }
+
+// 10. High-Tech Cinematic Welcome Intro Animation
+function initWelcomeIntro() {
+  const overlay = document.getElementById('welcomeOverlay');
+  const bar = document.getElementById('welcomeProgressBar');
+  const statusText = document.getElementById('welcomeStatusText');
+  const pctText = document.getElementById('welcomeProgressPct');
+  const skipBtn = document.getElementById('welcomeSkipBtn');
+
+  if (!overlay) return;
+
+  let isDismissed = false;
+
+  function dismissIntro() {
+    if (isDismissed) return;
+    isDismissed = true;
+    overlay.classList.add('dismissed');
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 750);
+  }
+
+  skipBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dismissIntro();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') dismissIntro();
+  });
+
+  overlay.addEventListener('click', dismissIntro);
+
+  // Smooth cinematic progress sequence
+  const stages = [
+    { pct: 28, text: 'INITIALIZING SYSTEM ENVIRONMENT...', delay: 200 },
+    { pct: 64, text: 'COMPILING FULL-STACK MODULES...', delay: 650 },
+    { pct: 92, text: 'LINKING PRODUCTION ARCHITECTURE...', delay: 1100 },
+    { pct: 100, text: 'SYSTEM READY // WELCOME.', delay: 1450 }
+  ];
+
+  stages.forEach(({ pct, text, delay }) => {
+    setTimeout(() => {
+      if (isDismissed) return;
+      if (bar) bar.style.width = `${pct}%`;
+      if (pctText) pctText.textContent = `${pct}%`;
+      if (statusText) statusText.textContent = text;
+
+      if (pct === 100) {
+        setTimeout(() => {
+          dismissIntro();
+        }, 350);
+      }
+    }, delay);
+  });
+}
+

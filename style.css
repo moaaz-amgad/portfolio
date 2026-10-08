@@ -2167,3 +2167,239 @@ body.modal-open {
   .lg\:justify-end { justify-content: flex-end; }
 }
 
+/* ==========================================================================
+   HIGH-TECH CINEMATIC WELCOME ENTRANCE OVERLAY
+   ========================================================================== */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background-color: #02050b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.75s ease;
+}
+
+.welcome-overlay.dismissed {
+  opacity: 0;
+  transform: scale(1.05) translateY(-30px);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.welcome-bg-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.18) 0%, rgba(56, 189, 248, 0.08) 35%, rgba(2, 5, 11, 0.95) 70%, #02050b 100%);
+  pointer-events: none;
+}
+
+.welcome-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+  max-width: 520px;
+  width: 90%;
+  animation: welcomeFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.welcome-logo-wrapper {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-logo {
+  position: relative;
+  z-index: 5;
+  width: 80px;
+  height: 80px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #0f172a 0%, #030712 100%);
+  border: 2px solid rgba(56, 189, 248, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.35), inset 0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+.welcome-logo span {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, #ffffff 30%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcome-pulse-ring {
+  position: absolute;
+  border-radius: 32px;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  pointer-events: none;
+}
+
+.welcome-pulse-ring.ring-1 {
+  inset: -6px;
+  animation: welcomePulse 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+.welcome-pulse-ring.ring-2 {
+  inset: -14px;
+  animation: welcomePulse 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite 0.4s;
+  opacity: 0.6;
+}
+
+.welcome-pulse-ring.ring-3 {
+  inset: -22px;
+  animation: welcomePulse 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite 0.8s;
+  opacity: 0.3;
+}
+
+@keyframes welcomePulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.92);
+    opacity: 0.8;
+  }
+}
+
+@keyframes welcomeFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.welcome-terminal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  margin-bottom: 16px;
+}
+
+.welcome-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background-color: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  animation: statusPulse 1.5s ease-in-out infinite;
+}
+
+.welcome-cmd {
+  font-size: 0.72rem;
+  color: #7dd3fc;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.welcome-title {
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 6px;
+  line-height: 1.1;
+  text-shadow: 0 0 35px rgba(56, 189, 248, 0.25);
+}
+
+.welcome-role {
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  color: #38bdf8;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.welcome-progress-box {
+  width: min(340px, 85vw);
+}
+
+.welcome-progress-track {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 12px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #2563eb, #38bdf8, #60a5fa);
+  border-radius: 9999px;
+  box-shadow: 0 0 14px #38bdf8;
+  transition: width 0.12s linear;
+}
+
+.welcome-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+}
+
+.welcome-status-text {
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+}
+
+.welcome-status-pct {
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+.welcome-skip-btn {
+  margin-top: 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.welcome-skip-btn:hover {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+
