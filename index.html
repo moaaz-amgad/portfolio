@@ -46,49 +46,50 @@
 <body class="bg-midnight text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
 
   <!-- High-Tech Welcome Entrance Animation Overlay -->
+  <!-- ===== INTERACTIVE TERMINAL BOOT INTRO ===== -->
   <div id="welcomeOverlay" class="welcome-overlay" aria-hidden="true">
     <div class="welcome-bg-glow"></div>
-    
-    <div class="welcome-container">
-      <!-- Cyber Monogram Badge -->
-      <div class="welcome-logo-wrapper">
-        <div class="welcome-pulse-ring ring-1"></div>
-        <div class="welcome-pulse-ring ring-2"></div>
-        <div class="welcome-pulse-ring ring-3"></div>
-        <div class="welcome-logo">
-          <span>MA</span>
+
+    <!-- Scanline CRT effect -->
+    <div class="terminal-scanline" aria-hidden="true"></div>
+
+    <div class="terminal-boot-container">
+      <!-- Terminal Window Chrome -->
+      <div class="terminal-window">
+        <!-- Title Bar -->
+        <div class="terminal-titlebar">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="terminal-tab">
+            <i class="fa-solid fa-terminal"></i>
+            <span>moaaz@portfolio ~ </span>
+          </div>
+          <button id="welcomeSkipBtn" class="terminal-skip-btn" aria-label="Skip Intro">
+            <span>Skip</span>
+            <kbd>ESC</kbd>
+          </button>
+        </div>
+
+        <!-- Terminal Body -->
+        <div class="terminal-body" id="terminalBody">
+          <div id="terminalLines" class="terminal-lines"></div>
+          <div class="terminal-input-line" id="terminalInputLine">
+            <span class="terminal-prompt">
+              <span class="prompt-user">moaaz</span><span class="prompt-at">@</span><span class="prompt-host">portfolio</span><span class="prompt-colon">:</span><span class="prompt-path">~</span><span class="prompt-dollar">$</span>
+            </span>
+            <span id="terminalCursor" class="terminal-cursor">█</span>
+          </div>
         </div>
       </div>
 
-      <!-- Tech Title & Terminal Line -->
-      <div class="welcome-terminal-badge">
-        <span class="welcome-status-dot"></span>
-        <span class="welcome-cmd font-mono">SYS_INIT :: MOAAZ_AMGAD_PORTFOLIO</span>
+      <!-- Ambient info below terminal -->
+      <div class="terminal-footer-hint">
+        <span class="terminal-hint-dot"></span>
+        <span>System ready — Press <kbd>ESC</kbd> or click anywhere to enter</span>
       </div>
-
-      <h1 class="welcome-title">
-        Moaaz Amgad
-      </h1>
-      <p class="welcome-role font-mono">
-        &lt;Full-Stack Software Engineer /&gt;
-      </p>
-
-      <!-- Sleek Dynamic Loading Progress -->
-      <div class="welcome-progress-box">
-        <div class="welcome-progress-track">
-          <div id="welcomeProgressBar" class="welcome-progress-fill"></div>
-        </div>
-        <div class="welcome-status-row">
-          <span id="welcomeStatusText" class="welcome-status-text font-mono">INITIALIZING ENVIRONMENT...</span>
-          <span id="welcomeProgressPct" class="welcome-status-pct font-mono">0%</span>
-        </div>
-      </div>
-
-      <!-- Discreet Skip Button -->
-      <button id="welcomeSkipBtn" class="welcome-skip-btn" aria-label="Skip Intro">
-        <span>Enter Portfolio</span>
-        <kbd class="text-[10px] opacity-60">ESC</kbd>
-      </button>
     </div>
   </div>
 
@@ -278,7 +279,7 @@
           
           <div class="space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed">
             <p>
-              I'm <strong>Moaaz Amgad</strong>, a dedicated Full-Stack Software Engineer with over <strong>4 years of hands-on experience</strong> engineering reliable web platforms. My philosophy centers on a simple truth: software shouldn't just run — it must be scalable, maintainable, and built to withstand real-world operational pressure.
+              I'm <strong>Moaaz Amgad</strong>, a dedicated Full-Stack Software Engineer passionate about engineering reliable web platforms. My philosophy centers on a simple truth: software shouldn't just run — it must be scalable, maintainable, and built to withstand real-world operational pressure.
             </p>
             <p>
               I bridge the gap between heavy server-side business logic and sleek, modern front-end user interfaces. Rather than taking shortcuts, I prioritize clean architectural patterns, SOLID design principles, and comprehensive testing to ensure longevity and minimal technical debt.
@@ -287,7 +288,7 @@
 
           <!-- Value Badges -->
           <div class="pt-6 mt-6 flex flex-wrap gap-3">
-            <span class="skill-pill"><i class="fa-solid fa-check text-cyan-400"></i> 4+ Years Experience</span>
+            <span class="skill-pill"><i class="fa-solid fa-check text-cyan-400"></i> Passionate Engineer</span>
             <span class="skill-pill"><i class="fa-solid fa-check text-cyan-400"></i> Full-Stack Versatility</span>
             <span class="skill-pill"><i class="fa-solid fa-check text-cyan-400"></i> Clean Code &amp; SOLID Design</span>
             <span class="skill-pill"><i class="fa-solid fa-check text-cyan-400"></i> Scalable Cloud Architecture</span>
@@ -390,8 +391,8 @@
         <!-- 3. Key Quantitative Highlights Bar (Compact 2x2 on mobile, 4 across on desktop) -->
         <div class="about-stats-grid">
           <div class="about-stat-card">
-            <span class="stat-number text-cyan-400">4+</span>
-            <span class="stat-title">Years Experience</span>
+            <span class="stat-number text-cyan-400">Passionate</span>
+            <span class="stat-title">Dedication</span>
             <span class="stat-desc">Full-stack software engineering</span>
           </div>
 

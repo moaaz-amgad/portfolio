@@ -580,17 +580,150 @@ function initSkillsFilter() {
   });
 }
 
-// 10. High-Tech Cinematic Welcome Intro Animation
+// 10. Interactive Terminal Boot Intro
 function initWelcomeIntro() {
   const overlay = document.getElementById('welcomeOverlay');
-  const bar = document.getElementById('welcomeProgressBar');
-  const statusText = document.getElementById('welcomeStatusText');
-  const pctText = document.getElementById('welcomeProgressPct');
+  const terminalLines = document.getElementById('terminalLines');
+  const terminalBody = document.getElementById('terminalBody');
+  const inputLine = document.getElementById('terminalInputLine');
+  const cursor = document.getElementById('terminalCursor');
   const skipBtn = document.getElementById('welcomeSkipBtn');
 
-  if (!overlay) return;
+  if (!overlay || !terminalLines) return;
 
   let isDismissed = false;
+
+  // --- Authentic Keyboard Audio Engine (Web Audio API Synthesized Mechanical Keypress) ---
+  let audioCtx = null;
+  let normalKeyBuffers = [];
+  let spaceKeyBuffer = null;
+
+  function initAudioEngine() {
+    try {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) audioCtx = new AudioContextClass();
+      }
+      if (!audioCtx) return null;
+
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume().catch(() => {});
+      }
+
+      // Pre-synthesize authentic physical keyboard keystrokes
+      if (normalKeyBuffers.length === 0) {
+        const sr = audioCtx.sampleRate || 44100;
+
+        // Generate physical keystroke audio buffer
+        function createKeyBuffer(pitchVar, isSpace = false) {
+          const dur = isSpace ? 0.055 : 0.040; // 40ms normal key, 55ms spacebar
+          const numSamples = Math.floor(sr * dur);
+          const buffer = audioCtx.createBuffer(1, numSamples, sr);
+          const data = buffer.getChannelData(0);
+          let lastNoise = 0;
+
+          for (let i = 0; i < numSamples; i++) {
+            const t = i / sr;
+
+            // 1. High transient contact tick (crisp plastic impact)
+            const tickDecay = isSpace ? 0.0035 : 0.0025;
+            const tick = (Math.random() * 2 - 1) * Math.exp(-t / tickDecay) * (isSpace ? 0.28 : 0.40);
+
+            // 2. Switch resonant snap (tactile switch clack)
+            const clickFreq = (isSpace ? 1400 : 2100) * pitchVar;
+            const clickEnv = Math.exp(-t / 0.006) * (1 - Math.exp(-t / 0.0008));
+            const click = Math.sin(2 * Math.PI * clickFreq * t) * clickEnv * (isSpace ? 0.25 : 0.34);
+
+            // 3. Bottom-out mechanical thock (resonant keyboard casing / keycap impact)
+            const startThock = (isSpace ? 180 : 270) * pitchVar;
+            const endThock = (isSpace ? 65 : 90) * pitchVar;
+            const thockDecay = isSpace ? 0.022 : 0.015;
+            const thockFreq = (startThock - endThock) * Math.exp(-t / 0.014) + endThock;
+            const thockEnv = Math.exp(-t / thockDecay);
+            const thock = Math.sin(2 * Math.PI * thockFreq * t) * thockEnv * (isSpace ? 0.55 : 0.44);
+
+            // 4. Mechanical friction texture (filtered tactile noise)
+            const rawNoise = (Math.random() * 2 - 1);
+            lastNoise = lastNoise + 0.32 * (rawNoise - lastNoise);
+            const clack = lastNoise * Math.exp(-t / (isSpace ? 0.012 : 0.009)) * 0.28;
+
+            let val = tick + click + thock + clack;
+            if (val > 1) val = 1;
+            if (val < -1) val = -1;
+            data[i] = val;
+          }
+          return buffer;
+        }
+
+        // Generate 5 distinct pitch/resonance variations for natural typing
+        const pitches = [0.93, 0.97, 1.0, 1.04, 1.08];
+        normalKeyBuffers = pitches.map(p => createKeyBuffer(p, false));
+        // Spacebar buffer (deeper, fuller hollow thock)
+        spaceKeyBuffer = createKeyBuffer(0.92, true);
+      }
+    } catch (e) {
+      // Audio engine init error, silently ignore
+    }
+    return audioCtx;
+  }
+
+  function unlockAudioEngine() {
+    const ctx = initAudioEngine();
+    if (!ctx) return;
+    if (ctx.state === 'suspended') {
+      ctx.resume().catch(() => {});
+    }
+    try {
+      const buf = ctx.createBuffer(1, 1, 22050);
+      const src = ctx.createBufferSource();
+      src.buffer = buf;
+      src.connect(ctx.destination);
+      src.start(0);
+    } catch (e) {}
+  }
+
+  // Listen to user interactions to unlock immediately on the slightest movement
+  const unlockEvents = [
+    'pointerdown', 'mousedown', 'keydown', 'touchstart', 'touchend',
+    'mousemove', 'pointermove', 'wheel', 'scroll', 'click', 'focus'
+  ];
+  unlockEvents.forEach(evt => {
+    window.addEventListener(evt, unlockAudioEngine, { once: true, passive: true });
+    document.addEventListener(evt, unlockAudioEngine, { once: true, passive: true });
+  });
+
+  // Play realistic keyboard keypress (letters vs spacebar)
+  function playKeyClick(isSpace = false) {
+    try {
+      const ctx = initAudioEngine();
+      if (!ctx) return;
+      if (ctx.state === 'suspended') {
+        ctx.resume().catch(() => {});
+      }
+
+      const buffer = isSpace
+        ? spaceKeyBuffer
+        : normalKeyBuffers[Math.floor(Math.random() * normalKeyBuffers.length)];
+
+      if (!buffer) return;
+
+      const src = ctx.createBufferSource();
+      src.buffer = buffer;
+
+      // Master gain node for clear, clean, audible volume
+      const gain = ctx.createGain();
+      const baseGain = isSpace ? 0.52 : 0.46;
+      // Slight natural volume micro-variation
+      const randomGain = baseGain + (Math.random() * 0.08 - 0.04);
+      gain.gain.setValueAtTime(randomGain, ctx.currentTime);
+
+      src.connect(gain);
+      gain.connect(ctx.destination);
+      src.start();
+    } catch (e) {
+      // Audio not supported, silently ignore
+    }
+  }
 
   function dismissIntro() {
     if (isDismissed) return;
@@ -598,7 +731,7 @@ function initWelcomeIntro() {
     overlay.classList.add('dismissed');
     setTimeout(() => {
       overlay.style.display = 'none';
-    }, 750);
+    }, 850);
   }
 
   skipBtn?.addEventListener('click', (e) => {
@@ -610,29 +743,149 @@ function initWelcomeIntro() {
     if (e.key === 'Escape') dismissIntro();
   });
 
-  overlay.addEventListener('click', dismissIntro);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay || e.target.closest('.welcome-bg-glow') || e.target.closest('.terminal-scanline')) {
+      dismissIntro();
+    }
+  });
 
-  // Smooth cinematic progress sequence
-  const stages = [
-    { pct: 28, text: 'INITIALIZING SYSTEM ENVIRONMENT...', delay: 200 },
-    { pct: 64, text: 'COMPILING FULL-STACK MODULES...', delay: 650 },
-    { pct: 92, text: 'LINKING PRODUCTION ARCHITECTURE...', delay: 1100 },
-    { pct: 100, text: 'SYSTEM READY // WELCOME.', delay: 1450 }
+  // Utility: create a prompt HTML string
+  function promptHTML() {
+    return `<span class="term-prompt"><span class="prompt-user">moaaz</span><span class="prompt-at">@</span><span class="prompt-host">portfolio</span><span class="prompt-colon">:</span><span class="prompt-path">~</span><span class="prompt-dollar">$</span></span>`;
+  }
+
+  // Add a completed line to terminal
+  function addLine(html, className = '') {
+    if (isDismissed) return;
+    const div = document.createElement('div');
+    div.className = `term-line ${className}`;
+    div.innerHTML = html;
+    terminalLines.appendChild(div);
+    scrollToBottom();
+  }
+
+  // Add blank line
+  function addBlank() {
+    addLine('&nbsp;');
+  }
+
+  function scrollToBottom() {
+    terminalBody.scrollTop = terminalBody.scrollHeight;
+  }
+
+  // Type a command character by character (SLOWER + KEY SOUND)
+  function typeCommand(cmdHTML, plainText) {
+    return new Promise((resolve) => {
+      if (isDismissed) { resolve(); return; }
+
+      inputLine.style.display = 'none';
+
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'term-line';
+      typingDiv.style.opacity = '1';
+      typingDiv.innerHTML = promptHTML();
+
+      const textSpan = document.createElement('span');
+      textSpan.className = 'terminal-typed-text';
+      typingDiv.appendChild(textSpan);
+
+      const cursorSpan = document.createElement('span');
+      cursorSpan.className = 'terminal-cursor';
+      cursorSpan.textContent = '█';
+      typingDiv.appendChild(cursorSpan);
+
+      terminalLines.appendChild(typingDiv);
+      scrollToBottom();
+
+      let i = 0;
+      const chars = plainText;
+
+      function typeNext() {
+        if (isDismissed) { resolve(); return; }
+        if (i < chars.length) {
+          textSpan.textContent += chars[i];
+          playKeyClick(chars[i] === ' ');
+          i++;
+          scrollToBottom();
+          // Slightly slower typing: 90–130ms per character
+          const nextDelay = 90 + (Math.random() * 40);
+          setTimeout(typeNext, nextDelay);
+        } else {
+          cursorSpan.remove();
+          textSpan.innerHTML = cmdHTML;
+          setTimeout(resolve, 100);
+        }
+      }
+      typeNext();
+    });
+  }
+
+  // Simulate a delay
+  function wait(ms) {
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(), ms);
+    });
+  }
+
+  // ASCII Art Banner
+  const asciiArt = [
+    '  __  __                         ',
+    ' |  \\/  | ___   __ _  __ _ ____  ',
+    ' | |\\/| |/ _ \\ / _` |/ _` |_  / ',
+    ' | |  | | (_) | (_| | (_| |/ /  ',
+    ' |_|  |_|\\___/ \\__,_|\\__,_/___| ',
   ];
 
-  stages.forEach(({ pct, text, delay }) => {
-    setTimeout(() => {
+  // Boot Sequence — SIMPLIFIED & SHORTER
+  async function runBootSequence() {
+    initAudioEngine();
+    unlockAudioEngine();
+    // Step 1: whoami
+    await typeCommand(
+      `<span class="term-cmd">whoami</span>`,
+      'whoami'
+    );
+    await wait(250);
+    addLine(`<span class="term-highlight">moaaz-amgad</span> <span class="term-comment">// Full-Stack Software Engineer</span>`);
+    await wait(450);
+    if (isDismissed) return;
+
+    // Step 2: deploy
+    await typeCommand(
+      `<span class="term-cmd">npm</span> <span class="term-cmd">run</span> <span class="term-string">deploy</span> <span class="term-flag">--prod</span>`,
+      'npm run deploy --prod'
+    );
+    await wait(350);
+    addLine(`<span class="term-dim">[</span><span class="term-warn">BUILD</span><span class="term-dim">]</span> Compiling... <span class="term-success">✓</span>`);
+    await wait(300);
+    addLine(`<span class="term-dim">[</span><span class="term-success">DONE</span><span class="term-dim">]</span> <span class="term-success">Portfolio live!</span> 🚀`);
+    await wait(500);
+    if (isDismissed) return;
+
+    // Step 3: ASCII Art reveal
+    addBlank();
+    for (const line of asciiArt) {
+      addLine(`<span class="term-ascii">${line}</span>`, 'ascii-reveal');
+      await wait(80);
       if (isDismissed) return;
-      if (bar) bar.style.width = `${pct}%`;
-      if (pctText) pctText.textContent = `${pct}%`;
-      if (statusText) statusText.textContent = text;
+    }
+    await wait(350);
+    if (isDismissed) return;
 
-      if (pct === 100) {
-        setTimeout(() => {
-          dismissIntro();
-        }, 350);
-      }
-    }, delay);
-  });
+    // Step 4: Welcome
+    addBlank();
+    addLine(`<span class="term-success">▸</span> <span class="term-bold">Welcome.</span> <span class="term-comment">// Let's build something great.</span>`);
+
+    inputLine.style.display = 'flex';
+    scrollToBottom();
+
+    // Wait ~2 seconds after everything finishes before opening portfolio
+    await wait(2000);
+    dismissIntro();
+  }
+
+  // Start the boot sequence
+  setTimeout(() => {
+    runBootSequence();
+  }, 400);
 }
-
