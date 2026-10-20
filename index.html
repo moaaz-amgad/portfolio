@@ -41,9 +41,17 @@
     }
   </script>
 
+  <!-- Force instant scroll to top on reload -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  </script>
+
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-midnight text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
+<body class="bg-midnight text-slate-100 antialiased selection:bg-cyan-500 selection:text-black terminal-active">
 
   <!-- High-Tech Welcome Entrance Animation Overlay -->
   <!-- ===== INTERACTIVE TERMINAL BOOT INTRO ===== -->

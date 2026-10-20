@@ -2,6 +2,21 @@
 // MOAAZ AMGAD — PORTFOLIO CORE SCRIPT
 // ==========================================================================
 
+// Force browser to start at the top on every refresh / reload
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+document.documentElement.scrollTop = 0;
+if (document.body) document.body.scrollTop = 0;
+
+window.addEventListener('pageshow', () => {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   initScrollProgress();
   initCustomCursor();
@@ -728,11 +743,27 @@ function initWelcomeIntro() {
   function dismissIntro() {
     if (isDismissed) return;
     isDismissed = true;
+
+    // Pin page to top (0, 0) instantly before opening portfolio
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    if (document.body) document.body.scrollTop = 0;
+
     overlay.classList.add('dismissed');
+    document.body.classList.remove('terminal-active');
+
     setTimeout(() => {
       overlay.style.display = 'none';
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }, 850);
   }
+
+  // Prevent any touchmove or swipe on overlay from moving background portfolio
+  overlay.addEventListener('touchmove', (e) => {
+    if (!e.target.closest('#terminalBody')) {
+      e.preventDefault();
+    }
+  }, { passive: false });
 
   skipBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
