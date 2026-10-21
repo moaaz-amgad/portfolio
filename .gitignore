@@ -1,12 +1,17 @@
-# OS files
+# Operating System files
 .DS_Store
 Thumbs.db
 desktop.ini
+*.lnk
 
-# IDE
+# Editor and IDE directories
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
 
-# Screenshots (not needed in repo)
-Screenshot *.png
+# Temporary files and logs
 *.bak
+*.tmp
+*.log
+scratch/
